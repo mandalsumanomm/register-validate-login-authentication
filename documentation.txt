@@ -1,0 +1,57 @@
+Project Documentation
+---------------------
+
+1. Registration Process:
+   - To register a new user, send a POST request to the registration endpoint.
+     Example:
+     ```
+     URL: http://localhost:3000/register
+     Method: POST
+     Headers: Content-Type: application/json
+     Body:
+     {
+       "email": "example@example.com",
+       "username": "exampleUser",
+       "password": "password123",
+       "confirmPassword": "password123",
+       "roles": ["user"]
+     }
+     ```
+
+2. OTP Verification:
+   - After registration, an OTP (One-Time Password) will be sent to the registered email address. To verify the OTP, send a POST request to the OTP verification endpoint.
+     Example:
+     ```
+     URL: http://localhost:3000/verify-otp
+     Method: POST
+     Headers: Content-Type: application/json
+     Body:
+     {
+       "email": "example@example.com",
+       "otp": "123456"
+     }
+     ```
+
+3. Login Process:
+   - To log in, send a POST request to the login endpoint with the user's email and password.
+     Example:
+     ```
+     URL: http://localhost:3000/login
+     Method: POST
+     Headers: Content-Type: application/json
+     Body:
+     {
+       "email": "example@example.com",
+       "password": "password123"
+     }
+     ```
+4. .env:
+    - To run the application, create a .env file in the root directory of this project and add the following
+    ```
+    MONGODB_URI=mongodb://localhost:27017/auth-demo
+    JWT_SECRET=h3l@potrain
+    EMAIL_USERNAME=example@gmail.com
+    EMAIL_PASSWORD=your-email-password
+    ```
+    
+    Make sure to replace example data with actual values when testing the endpoints. Adjust the URLs if your server is hosted elsewhere.
